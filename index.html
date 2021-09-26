@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WeatherDashboard</title>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+        <link rel="stylesheet" href="./assets/jass.css" />
+        <link rel="stylesheet" href="./assets/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container-fluid bg-primary text-white text-center">
+                <h1><strong>Weather Dashboard</strong></h1>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 searchcoloum">
+                    <form>
+                        <h3>Search for a city</h3>
+                        <input type="text" id="cityName" placeholder="Enter City" />
+                        <button type="submit" id="submitBtn" class="btn btn-primary fas fa-search"></button>
+                    </form>
+
+                    <div id="previousSearch" class="btn-group-vertical"><h3>Previous Searches</h3></div>
+                </div>
+
+                <div class="col-md-9">
+                    <div id="currentWeather">
+                        <h3>Current Weather</h3>
+                        <h4 id="currentCity"></h4>
+                        <p id="date"></p>
+                        <img id="icon" />
+                        <p id="maxtemp">Temp:</p>
+                        <p id="humidity">Humidity:</p>
+                        <p id="uvindex">UV Index:<span id="uvcolor"></span></p>
+                        <p id="windspeed">Wind Speed:</p>
+                    </div>
+
+                    <div class="d-flex" id="fivedayForcast">
+                        <h3>Five Day Forcast</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./assets/script.js"></script>
+    </body>
+</html>

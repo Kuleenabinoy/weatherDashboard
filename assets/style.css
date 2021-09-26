@@ -1,0 +1,39 @@
+body {
+    font-family: "Fira Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+}
+header {
+    width: 100%;
+    height: 40px;
+}
+.container {
+    max-width: 1300px;
+}
+.searchColumn {
+    background-color: #eee;
+}
+h3 {
+    padding-top: 10px;
+    font-weight: 600;
+}
+#currentWeather ,#fivedayForcast{
+    border: solid 1px rgba(0,0,0,.125);
+    border-radius: 0.3rem;
+    margin: 15px 0 15px 0;
+    padding: 15px;
+}
+
+#previousSearch {
+    margin-bottom: 15px;
+    max-height: 408px;
+    overflow: auto;
+}
