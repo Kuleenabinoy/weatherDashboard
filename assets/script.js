@@ -4,6 +4,27 @@ var fivedayForcast = $("#fivedayForcast");
 var cityName = $("#cityName");
 var currentDay = moment().format("MMMM Do YYYY");
 console.log(currentDay);
+var cityArray = [];
+var cityName1 = " ";
+// function updateLocalstorage(cityName1) {
+//     localStorage.setItem("cityName", cityName1);
+//     for (var i = 0; i < localStorage.length; i++) {
+//         $(".searchlist").append("<button>" + localStorage.getItem(localStorage.key(i)) + "</button>");
+//     }
+// }
+$("#submitBtn").click(function (event) {
+    event.preventDefault();
+    //var cityName1 = cityName.val().trim();
+    //console.log(cityName1);
+    if (cityName.val().trim() !== " ") {
+        cityName1 = cityName.val().trim();
+        //  console.log(cityName1, "city name");
+        getWeather(cityName1);
+        getweatherForcast(cityName1);
+    } else {
+        alert("Please Enter A City");
+    }
+});
 
 function getWeather(cityName1) {
     console.log(cityName1);
@@ -16,40 +37,31 @@ function getWeather(cityName1) {
             console.log(data);
             displayWeather(data);
             if (data.cod == 200) {
-                alert("sucessfull search");
+                //  alert("sucessfull search");
                 cityArray = JSON.parse(localStorage.getItem("cityname"));
-                console.log(cityArray);
+
+                // console.log(cityArray);
                 if (cityArray == null) {
                     cityArray = [];
                     cityArray.push(cityName1.toUpperCase());
                     localStorage.setItem("cityname", JSON.stringify(cityArray));
-                    //  addToList(cityArray);
+                    addToList(cityArray);
                 } else {
-                    cityArray.push(cityName1.toUpperCase());
-                    localStorage.setItem("cityname", JSON.stringify(cityArray));
-                    //   addToList(cityArray);
+                    if (cityName1) {
+                        cityArray.push(cityName1.toUpperCase());
+                        localStorage.setItem("cityname", JSON.stringify(cityArray));
+                        addToList(cityArray);
+                    }
                 }
             }
         });
 }
-
-// function updateLocalstorage(cityName1) {
-//     localStorage.setItem("cityName", cityName1);
-//     for (var i = 0; i < localStorage.length; i++) {
-//         $(".searchlist").append("<button>" + localStorage.getItem(localStorage.key(i)) + "</button>");
-//     }
-// }
-// function addToList(cities) {
-//     for (var i = 0; i < cities.length; i++) {
-//         $("#previousSearch").append("<button > " + cities[i] + "</button><br>");
-//     }
-// }
 function displayWeather(data) {
     $("#date").append(currentDay);
     $("#currentCity").append(data.name);
-    var icon = "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
-    console.log(icon);
-    $("#icon").attr("src", icon);
+    var iconC = "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+    //console.log(iconC);
+    $("#iconC").attr("src", iconC);
     var temp = data.main.temp;
     var tempC = Math.floor(temp - 273.15);
     console.log(tempC);
@@ -86,17 +98,6 @@ function uvIndex(lon, lat) {
         });
 }
 
-$("#submitBtn").click(function (event) {
-    event.preventDefault();
-    var cityName1 = cityName.val().trim();
-    console.log(cityName1);
-    if (cityName1) {
-        getWeather(cityName1);
-        getweatherForcast(cityName1);
-    } else {
-        alert("Please Enter A City");
-    }
-});
 function getweatherForcast(cityName1) {
     var requestUrlforcast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName1 + "&appid=" + apiKey;
     fetch(requestUrlforcast)
@@ -105,7 +106,6 @@ function getweatherForcast(cityName1) {
         })
         .then(function (data) {
             console.log(data);
-
             var day = data.list[8];
             var date = moment(day.dt_txt).format("ddd, MMM D");
             console.log(date, "date");
@@ -231,3 +231,14 @@ function getweatherForcast(cityName1) {
             //  }
         });
 }
+
+function addToList(c) {
+    for (var i = 0; i < cityArray.length; i++) {
+        $("#previousSearch").append("<button > " + cityArray[i] + "</button><br>");
+    }
+}
+function invokePastSearch(event) {}
+
+$(document).on("click", invokePastSearch);
+$(window).on("load", addToList);
+//$("#submitBtn").on("click", displayWeather);
