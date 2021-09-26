@@ -36,11 +36,11 @@
                         <button type="submit" id="submitBtn" class="btn btn-primary fas fa-search"></button>
                     </form>
 
-                    <div id="previousSearch" class="btn-group-vertical"><h3>Previous Searches</h3></div>
+                    <div id="previousSearch" class="btn-outline-primary"></div>
                 </div>
 
                 <div class="col-md-9">
-                    <div id="currentWeather">
+                    <div id="currentWeather" class="bg-primary text-white">
                         <h3>Current Weather</h3>
                         <h4 id="currentCity"></h4>
                         <p id="date"></p>
@@ -50,10 +50,73 @@
                         <p id="uvindex">UV Index:<span id="uvcolor"></span></p>
                         <p id="windspeed">Wind Speed:</p>
                     </div>
+                    <div class="row gutters">
+                        <!--Day 1-->
+                        <div class="col">
+                            <div class="card forecast">
+                                <div class="card-body bg-primary text-white">
+                                    <p class="date1"></p>
+                                    <img class="icon1" />
+                                    <p class="temp1">Temp:</p>
+                                    <p class="humd1">Humidity:</p>
+                                    <p class="wind1">Wind Speed:</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="d-flex" id="fivedayForcast">
-                        <h3>Five Day Forcast</h3>
+                        <!--Day 2-->
+                        <div class="col">
+                            <div class="card forecast">
+                                <div class="card-body bg-primary text-white">
+                                    <p class="date2"></p>
+                                    <img class="icon2" />
+                                    <p class="temp2">Temp:</p>
+                                    <p class="humd2">Humidity:</p>
+                                    <p class="wind2">Wind Speed:</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card forecast">
+                                <div class="card-body bg-primary text-white">
+                                    <p class="date3"></p>
+                                    <img class="icon3" />
+                                    <p class="temp3">Temp:</p>
+                                    <p class="humd3">Humidity:</p>
+                                    <p class="wind3">Wind Speed:</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card forecast">
+                                <div class="card-body bg-primary text-white">
+                                    <p class="date4"></p>
+                                    <img class="icon4" />
+                                    <p class="temp4">Temp:</p>
+                                    <p class="humd4">Humidity:</p>
+                                    <p class="wind4">Wind Speed:</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card forecast">
+                                <div class="card-body bg-primary text-white">
+                                    <p class="date5"></p>
+                                    <img class="icon5" />
+                                    <p class="temp5">Temp:</p>
+                                    <p class="humd5">Humidity</p>
+                                    <p class="wind5">Wind Speed:</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- <div class="d-flex" id="fivedayForcast">
+                        <h3>Five Day Forcast</h3>
+                    </div> -->
                 </div>
             </div>
         </div>
