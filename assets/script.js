@@ -20,7 +20,7 @@ $("#submitBtn").click(function (event) {
 
 function getWeather(cityName1) {
     console.log(cityName1);
-    var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName1 + "&appid=" + apiKey;
+    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName1 + "&appid=" + apiKey;
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -40,7 +40,7 @@ function getWeather(cityName1) {
 function displayWeather(data) {
     $("#date").append(currentDay);
     $("#currentCity").append(data.name);
-    var iconC = "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+    var iconC = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
     //console.log(iconC);
     $("#iconC").attr("src", iconC);
     var temp = data.main.temp;
@@ -80,7 +80,7 @@ function uvIndex(lon, lat) {
 }
 
 function getweatherForcast(cityName1) {
-    var requestUrlforcast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName1 + "&appid=" + apiKey;
+    var requestUrlforcast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName1 + "&appid=" + apiKey;
     fetch(requestUrlforcast)
         .then(function (response) {
             return response.json();
@@ -97,7 +97,7 @@ function getweatherForcast(cityName1) {
             console.log(humd);
             var windspeed = day.wind.speed;
             console.log(windspeed);
-            var icon = "http://openweathermap.org/img/wn/" + day.weather[0].icon + ".png";
+            var icon = "https://openweathermap.org/img/wn/" + day.weather[0].icon + ".png";
             console.log(icon);
             $(".date1").append(date);
             $(".wind1").append(windspeed + "MPH");
@@ -115,7 +115,7 @@ function getweatherForcast(cityName1) {
             console.log(humd);
             var windspeed = day2.wind.speed;
             console.log(windspeed);
-            var icon = "http://openweathermap.org/img/wn/" + day2.weather[0].icon + ".png";
+            var icon = "https://openweathermap.org/img/wn/" + day2.weather[0].icon + ".png";
             console.log(icon);
             $(".date2").append(date);
             $(".wind2").append(windspeed + "MPH");
@@ -133,7 +133,7 @@ function getweatherForcast(cityName1) {
             console.log(humd);
             var windspeed = day3.wind.speed;
             console.log(windspeed);
-            var icon = "http://openweathermap.org/img/wn/" + day3.weather[0].icon + ".png";
+            var icon = "https://openweathermap.org/img/wn/" + day3.weather[0].icon + ".png";
             console.log(icon);
             $(".date3").append(date);
             $(".wind3").append(windspeed + "MPH");
@@ -151,7 +151,7 @@ function getweatherForcast(cityName1) {
             console.log(humd);
             var windspeed = day4.wind.speed;
             console.log(windspeed);
-            var icon = "http://openweathermap.org/img/wn/" + day4.weather[0].icon + ".png";
+            var icon = "https://openweathermap.org/img/wn/" + day4.weather[0].icon + ".png";
             console.log(icon);
             $(".date4").append(date);
             $(".wind4").append(windspeed + "MPH");
@@ -169,7 +169,7 @@ function getweatherForcast(cityName1) {
             console.log(humd);
             var windspeed = day5.wind.speed;
             console.log(windspeed);
-            var icon = "http://openweathermap.org/img/wn/" + day5.weather[0].icon + ".png";
+            var icon = "https://openweathermap.org/img/wn/" + day5.weather[0].icon + ".png";
             console.log(icon);
             $(".date5").append(date);
             $(".wind5").append(windspeed + "MPH");
