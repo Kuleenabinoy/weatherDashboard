@@ -5,13 +5,7 @@ var cityName = $("#cityName");
 var currentDay = moment().format("MMMM Do YYYY");
 console.log(currentDay);
 var cityArray = [];
-var cityName1 = " ";
-// function updateLocalstorage(cityName1) {
-//     localStorage.setItem("cityName", cityName1);
-//     for (var i = 0; i < localStorage.length; i++) {
-//         $(".searchlist").append("<button>" + localStorage.getItem(localStorage.key(i)) + "</button>");
-//     }
-// }
+
 $("#submitBtn").click(function (event) {
     event.preventDefault();
     //var cityName1 = cityName.val().trim();
@@ -38,21 +32,10 @@ function getWeather(cityName1) {
             displayWeather(data);
             if (data.cod == 200) {
                 //  alert("sucessfull search");
-                cityArray = JSON.parse(localStorage.getItem("cityname"));
-
-                // console.log(cityArray);
-                if (cityArray == null) {
-                    cityArray = [];
-                    cityArray.push(cityName1.toUpperCase());
-                    localStorage.setItem("cityname", JSON.stringify(cityArray));
-                    addToList(cityArray);
-                } else {
-                    if (cityName1) {
-                        cityArray.push(cityName1.toUpperCase());
-                        localStorage.setItem("cityname", JSON.stringify(cityArray));
-                        addToList(cityArray);
-                    }
-                }
+                cityArray = JSON.parse(localStorage.getItem("cityname")) || [];
+                cityArray.push(cityName1.toUpperCase());
+                localStorage.setItem("cityname", JSON.stringify(cityArray));
+                addToList(cityArray);
             }
         });
 }
@@ -232,13 +215,30 @@ function getweatherForcast(cityName1) {
         });
 }
 
-function addToList(c) {
+function addToList(cityArray) {
     for (var i = 0; i < cityArray.length; i++) {
-        $("#previousSearch").append("<button > " + cityArray[i] + "</button><br>");
+        $("#previousSearch").append("<button class=search> " + cityArray[i] + "</button><br>");
     }
 }
-function invokePastSearch(event) {}
+function invokePastSearch() {
+    console.log(localStorage.cityname, "cityName from local storage");
+    var previouscities = JSON.parse(localStorage.getItem("cityname")) || [];
+    console.log(previouscities, "Previous cities");
+    console.log(previouscities[0], "pc1");
+    for (i = 0; i < previouscities.length; i++) {
+        $("#previousSearch").append("<button class=search > " + previouscities[i] + "</button><br>");
+    }
+}
+function searchfromBtn() {
+    alert("bt clicked");
+}
 
-$(document).on("click", invokePastSearch);
-$(window).on("load", addToList);
-//$("#submitBtn").on("click", displayWeather);
+$(".search").on("click", searchfromBtn);
+
+$(window).on("load", invokePastSearch);
+
+$("#clearBtn").on("click", clearStorage);
+function clearStorage() {
+    localStorage.clear();
+    //$("#previousSearch").style.display = none;
+}
