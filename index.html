@@ -36,12 +36,13 @@
                         <button type="submit" id="submitBtn" class="btn btn-primary fas fa-search"></button>
                     </form>
 
-                    <div id="previousSearch" class="btn-outline-primary">
-                        <button id="clearBtn">Clear Storage</button>
+                    <div id="list1" class="list list-group">
+                        <h3>Previous Searches:</h3>
                     </div>
+                    <button id="clearBtn">Clear Storage</button>
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-9" id="weatherContainer">
                     <div id="currentWeather" class="bg-primary text-white">
                         <h3>Current Weather</h3>
                         <h4 id="currentCity"></h4>
@@ -55,7 +56,7 @@
                     <div class="row gutters">
                         <!--Day 1-->
                         <div class="col">
-                            <div class="card forecast">
+                            <div class="card forecast" id="forcastcontainer">
                                 <div class="card-body bg-primary text-white">
                                     <p class="date1"></p>
                                     <img class="icon1" />

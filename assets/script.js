@@ -7,17 +7,27 @@ console.log(currentDay);
 var cityArray = [];
 
 $("#submitBtn").click(function (event) {
+    // document.location.reload();
+
     event.preventDefault();
+
     var cityName1 = cityName.val().trim();
     console.log(cityName1);
+
     if (cityName1) {
         getWeather(cityName1);
         getweatherForcast(cityName1);
+        listItems(cityName1);
     } else {
         alert("Please Enter A City");
     }
 });
-
+function listItems(cityName1) {
+    //alert("list");
+    var city = $("<li>").addClass("list-group-item").text(cityName1.toUpperCase());
+    $(".list").append(city);
+    //   $(".previousSearch").append(city);
+}
 function getWeather(cityName1) {
     console.log(cityName1);
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName1 + "&appid=" + apiKey;
@@ -28,12 +38,12 @@ function getWeather(cityName1) {
         .then(function (data) {
             console.log(data);
             displayWeather(data);
-            if (data.cod == 200) {
+            if (data.cod == 200 && cityName1 !== cityArray) {
                 //  alert("sucessfull search");
                 cityArray = JSON.parse(localStorage.getItem("cityname")) || [];
                 cityArray.push(cityName1.toUpperCase());
                 localStorage.setItem("cityname", JSON.stringify(cityArray));
-                addToList(cityArray);
+                //  addToList(cityArray);
             }
         })
 
@@ -76,9 +86,7 @@ function uvIndex(lon, lat) {
             } else if (Uv >= 8 && Uv <= 10) {
                 $("#uvcolor").css("background-color", "red").css("color", "white");
             }
-            //else {
-            //     $("#uvcolor").css("background-color", "purple").css("color", "black");
-            // }
+
             $("#uvcolor").append(Uv);
         })
         .catch(function (error) {
@@ -223,30 +231,30 @@ function getweatherForcast(cityName1) {
         });
 }
 
-function addToList(cityArray) {
-    for (var i = 0; i < cityArray.length; i++) {
-        $("#previousSearch").append("<button > " + cityArray[i] + "</button><br>");
-    }
-}
 function invokePastSearch() {
     console.log(localStorage.cityname, "cityName from local storage");
     var previouscities = JSON.parse(localStorage.getItem("cityname")) || [];
     console.log(previouscities, "Previous cities");
     console.log(previouscities[0], "pc1");
     for (i = 0; i < previouscities.length; i++) {
-        $("#previousSearch").append("<button  > " + previouscities[i] + "</button><br>");
+        var city = $("<li>").addClass("list-group-item").text(previouscities[i]);
+        $(".list").append(city);
     }
 }
-// function searchfromBtn() {
-//     alert("bt clicked");
-// }
+function searchfromlist(event) {
+    var nameselect = event.target;
+    if (event.target.matches("li")) {
+        cityName1 = nameselect.textContent;
+        getWeather(cityName1);
+        getweatherForcast(cityName1);
+    }
+}
 
-//$(".search").on("click", searchfromBtn);
-
+$(".list").on("click", searchfromlist);
 $(window).on("load", invokePastSearch);
 
 $("#clearBtn").on("click", clearStorage);
 function clearStorage() {
     localStorage.clear();
-    //$("#previousSearch").style.display = none;
+    document.location.reload();
 }

@@ -32,13 +32,10 @@ h3 {
     padding: 15px;
 }
 
-#previousSearch {
-    margin-bottom: 15px;
-    max-height: 408px;
-    overflow: auto;
+li{
+    text-decoration: none;
 }
-.button{
-margin-top: 25px;
-
-
+li:hover{
+    background-color: lightslategray;
+    text-decoration: underline;
 }
