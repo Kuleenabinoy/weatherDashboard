@@ -8,11 +8,9 @@ var cityArray = [];
 
 $("#submitBtn").click(function (event) {
     event.preventDefault();
-    //var cityName1 = cityName.val().trim();
-    //console.log(cityName1);
-    if (cityName.val().trim() !== " ") {
-        cityName1 = cityName.val().trim();
-        //  console.log(cityName1, "city name");
+    var cityName1 = cityName.val().trim();
+    console.log(cityName1);
+    if (cityName1) {
         getWeather(cityName1);
         getweatherForcast(cityName1);
     } else {
