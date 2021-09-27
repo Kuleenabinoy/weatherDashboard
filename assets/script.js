@@ -35,6 +35,10 @@ function getWeather(cityName1) {
                 localStorage.setItem("cityname", JSON.stringify(cityArray));
                 addToList(cityArray);
             }
+        })
+
+        .catch(function (error) {
+            console.error(error);
         });
 }
 function displayWeather(data) {
@@ -76,6 +80,9 @@ function uvIndex(lon, lat) {
             //     $("#uvcolor").css("background-color", "purple").css("color", "black");
             // }
             $("#uvcolor").append(Uv);
+        })
+        .catch(function (error) {
+            console.error(error);
         });
 }
 
@@ -210,6 +217,9 @@ function getweatherForcast(cityName1) {
             // card.append(cardBody.append(date, tempC, humd, windspeed));
             // $("#fivedayForcast").append(card);
             //  }
+        })
+        .catch(function (error) {
+            console.error(error);
         });
 }
 
