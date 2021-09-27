@@ -215,7 +215,7 @@ function getweatherForcast(cityName1) {
 
 function addToList(cityArray) {
     for (var i = 0; i < cityArray.length; i++) {
-        $("#previousSearch").append("<button class=search> " + cityArray[i] + "</button><br>");
+        $("#previousSearch").append("<button > " + cityArray[i] + "</button><br>");
     }
 }
 function invokePastSearch() {
@@ -224,14 +224,14 @@ function invokePastSearch() {
     console.log(previouscities, "Previous cities");
     console.log(previouscities[0], "pc1");
     for (i = 0; i < previouscities.length; i++) {
-        $("#previousSearch").append("<button class=search > " + previouscities[i] + "</button><br>");
+        $("#previousSearch").append("<button  > " + previouscities[i] + "</button><br>");
     }
 }
-function searchfromBtn() {
-    alert("bt clicked");
-}
+// function searchfromBtn() {
+//     alert("bt clicked");
+// }
 
-$(".search").on("click", searchfromBtn);
+//$(".search").on("click", searchfromBtn);
 
 $(window).on("load", invokePastSearch);
 
