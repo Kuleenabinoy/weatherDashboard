@@ -1,6 +1,6 @@
-# weatherDashboard
+# Weather Dashboard
 
-WeatherDashboard is developed using HTML CSS JAVASCRIPT. JSON is used to store information in local storage .Third Party API such as JQUERY,Bootstrap,Moment.js,Material.Css are also used in this development.Server side API Open WeatherMap is used to get information .
+WeatherDashboard is developed using HTML CSS JAVASCRIPT .Third Party API such as JQUERY,Bootstrap,Moment.js,Material.Css are also used in this development.Server side API Open WeatherMap is used to get information .
 
 ## Website includes:
 
