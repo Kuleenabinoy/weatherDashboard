@@ -1,5 +1,9 @@
 # Weather Dashboard
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+# Description
+
 WeatherDashboard is developed using HTML CSS JAVASCRIPT .Third Party API such as JQUERY,Bootstrap,Moment.js,Material.Css are also used in this development.Server side API Open WeatherMap is used to get information .
 
 ## Website includes:
