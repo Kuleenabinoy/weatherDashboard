@@ -30,10 +30,8 @@ Clear stoarge button is given to clear all the inforamtion in the local storage 
 
 ## Links
 
-```
 Deployed site: https://kuleenabinoy.github.io/weatherDashboard/
 Github Repository:https://github.com/Kuleenabinoy/weatherDashboard
-```
 
 ## Screenshots
 
